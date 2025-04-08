@@ -1,0 +1,16 @@
+{
+  "servers": {
+    "my-mcp-server-32e553e0": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "--with",
+        "fastmcp",
+        "fastmcp",
+        "run",
+        "/workspaces/llm-agent-layer/mcp-fast/server.py"
+      ]
+    }
+  }
+}
