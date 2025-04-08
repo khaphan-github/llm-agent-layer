@@ -1,30 +1,26 @@
 """
-FastMCP Echo Server
+A FastMCP server that provides tools for calculating dimensions based on aspect ratios.
+This server specifically handles 16:9 aspect ratio calculations.
 """
 
-from fastmcp import FastMCP
+from mcp.server.fastmcp import FastMCP
 
-# Create server
-mcp = FastMCP("Echo Server")
+mcp = FastMCP("my-mcp-ratio-server")
 
 
 @mcp.tool()
-def echo_tool(text: str) -> str:
-    """Echo the input text"""
-    return text
+def get_height_for_16_9(width: float) -> float:
+    """
+    Get the height value for a given width using 16:9 aspect ratio.
+
+    Args:
+        width (float): The width value
+
+    Returns:
+        float: The calculated height value
+    """
+    return (width * 9) / 16
 
 
-@mcp.resource("echo://static")
-def echo_resource() -> str:
-    return "Echo!"
-
-
-@mcp.resource("echo://{text}")
-def echo_template(text: str) -> str:
-    """Echo the input text"""
-    return f"Echo: {text}"
-
-
-@mcp.prompt("echo")
-def echo_prompt(text: str) -> str:
-    return text
+if __name__ == "__main__":
+    mcp.run(transport='stdio')
