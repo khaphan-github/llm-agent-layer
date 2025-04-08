@@ -1,0 +1,1 @@
+https://github.com/jlowin/fastmcp?tab=readme-ov-file#installation
