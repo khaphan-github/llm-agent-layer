@@ -6,12 +6,19 @@ import os
 from mcp.server.fastmcp import FastMCP
 from utils.pg_database import PGDatabase
 
-mcp = FastMCP("my-mcp-ratio-server")
+mcp = FastMCP("my-mcp-ratio-server",
+              instructions='''
+# You are an AI agent. You need to:
+- When the user asks to query a database, use the `query_data_basse` tool defined in `/workspaces/llm-agent-layer/mcp-fast/server.py`. Ensure the query is a SELECT query and provide the database name as required.
+- Ensure the tool is used securely and only for SELECT queries, as per the implementation.
+- Follow the existing tools and utilities provided in the environment for database operations.
+''')
 
 
 @mcp.tool()
 def query_data_basse(query_string: str, dbname: str):
     """
+    This tool help query database to get info
     Executes a SELECT query on the specified PostgreSQL database.
     Ensures that only SELECT queries are allowed for security reasons.
 
@@ -24,6 +31,10 @@ def query_data_basse(query_string: str, dbname: str):
 
     Raises:
       ValueError: If the query is not a SELECT query.
+
+    Example:
+      >>> result = query_data_basse("SELECT * FROM users;", "my_database")
+      >>> print(result)
     """
     if not query_string.strip().lower().startswith("select"):
         raise ValueError("Only SELECT queries are allowed.")
