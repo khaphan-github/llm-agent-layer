@@ -1,6 +1,6 @@
 {
   "servers": {
-    "my-mcp-server-32e553e0": {
+    "my-mcp-server": {
       "type": "stdio",
       "command": "uv",
       "args": [

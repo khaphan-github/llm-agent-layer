@@ -1,2 +1,5 @@
 fastmcp
 uv
+psycopg2-binary
+sqlalchemy
+psycopg2
