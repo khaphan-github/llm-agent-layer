@@ -3,3 +3,4 @@ uv
 psycopg2-binary
 sqlalchemy
 psycopg2
+python-env
