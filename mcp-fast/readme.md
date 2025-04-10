@@ -45,3 +45,22 @@ https://github.com/jlowin/fastmcp?tab=readme-ov-file#installation
 - What do u want me to help next?,
 ------------
 
+
+# Config
+```json
+{
+  "servers": {
+    "my-mcp-server-v1": {
+      "type": "stdio",
+      "command": "uv",
+      "args": [
+        "run",
+        "fastmcp",
+        "run",
+        "/workspaces/llm-agent-layer/mcp-fast/server.py"
+      ]
+    }
+  }
+}
+
+```
