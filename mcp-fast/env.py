@@ -1,17 +1,16 @@
 from dotenv import load_dotenv
 import os
 
-# Load environment variables from a .env file
 load_dotenv()
 
-# Access the environment variables
 POSTGRES_HR_USER = os.getenv("POSTGRES_HR_USER")
 POSTGRES_HR_PASSWORD = os.getenv("POSTGRES_HR_PASSWORD")
 POSTGRES_HR_HOST = os.getenv("POSTGRES_HR_HOST")
 POSTGRES_HR_PORT = os.getenv("POSTGRES_HR_PORT")
+REDIS_CELERY_BROKER = os.getenv("REDIS_CELERY_BROKER")
 
-# Example: Print the variables (optional, for debugging purposes)
-print(f"POSTGRES_HR_USER: {POSTGRES_HR_USER}")
-print(f"POSTGRES_HR_PASSWORD: {POSTGRES_HR_PASSWORD}")
-print(f"POSTGRES_HR_HOST: {POSTGRES_HR_HOST}")
-print(f"POSTGRES_HR_PORT: {POSTGRES_HR_PORT}")
+POSTGRES_AGENT_USER = os.getenv("POSTGRES_AGENT_USER")
+POSTGRES_AGENT_PASSWORD = os.getenv("POSTGRES_AGENT_PASSWORD")
+POSTGRES_AGENT_DATABASE_NAME = os.getenv("POSTGRES_AGENT_DATABASE_NAME")
+POSTGRES_AGENT_HOST = os.getenv("POSTGRES_AGENT_HOST")
+POSTGRES_AGENT_PORT = os.getenv("POSTGRES_AGENT_PORT")

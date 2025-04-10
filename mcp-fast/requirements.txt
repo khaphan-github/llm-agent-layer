@@ -6,3 +6,5 @@ psycopg2
 python-env
 py-markdown-table
 pytablewriter
+celery
+redis
