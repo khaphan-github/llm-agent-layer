@@ -15,7 +15,9 @@ def query_pg_hr_database_tool(query_string: str, dbname: str):
         port=POSTGRES_HR_PORT
     )
     print(f"Executing query on {dbname} database: {query_string}")
-    return db.execute_query(query_string)
+    result = db.execute_query(query_string)
+    print(f"Query result: {result}")
+    return result
 
 
 QUERY_PG_HR_DATABASE_TOOL = ToolConfig(
@@ -27,7 +29,7 @@ QUERY_PG_HR_DATABASE_TOOL = ToolConfig(
         Default should be public schema.
     parameters: 
     - query_string: str: query string to be executed.
-    - dbname: str: contain: angular2023, angular2024
+    - dbname: str: contain: postgres
     """,
     name="query_pg_hr_database",
     fn=query_pg_hr_database_tool,
